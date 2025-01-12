@@ -1,0 +1,749 @@
+2025-01-12 11:50:06.993 CST [592674] LOG:  候选者: pathtype=Agg,parallel_aware=false, parallel_safe=true,  parallel_workers=0, startup_cost=189.00, total_cost=189.01, rows=1
+2025-01-12 11:50:06.993 CST [592674] STATEMENT:  explain select count(*) from company;
+2025-01-12 11:50:06.993 CST [592674] LOG:  bestpath:tuple_fraction <= 0.0,all tuples will be retrieved.  pathtype=Agg,parallel_aware=false, parallel_safe=true,   parallel_workers=0, startup_cost=189.00, total_cost=189.01, rows=1
+2025-01-12 11:50:06.993 CST [592674] STATEMENT:  explain select count(*) from company;
+2025-01-12 12:15:01.035 CST [592674] LOG:  候选者: pathtype=IndexScan,parallel_aware=false, parallel_safe=true,  parallel_workers=0, startup_cost=0.27, total_cost=8.29, rows=1
+2025-01-12 12:15:01.035 CST [592674] STATEMENT:  select relpages,reltuples from pg_class where relname='company';
+2025-01-12 12:15:01.035 CST [592674] LOG:  bestpath:tuple_fraction <= 0.0,all tuples will be retrieved.  pathtype=IndexScan,parallel_aware=false, parallel_safe=true,   parallel_workers=0, startup_cost=0.27, total_cost=8.29, rows=1
+2025-01-12 12:15:01.035 CST [592674] STATEMENT:  select relpages,reltuples from pg_class where relname='company';
+2025-01-12 17:27:06.748 CST [592674] ERROR:  column "histogram_hounds" does not exist at character 8
+2025-01-12 17:27:06.748 CST [592674] HINT:  Perhaps you meant to reference the column "pg_stats.histogram_bounds".
+2025-01-12 17:27:06.748 CST [592674] STATEMENT:  select histogram_hounds from pg_stats where tablename='company' and attname='id';
+2025-01-12 17:27:31.030 CST [592674] LOG:  候选者: pathtype=SubqueryScan,parallel_aware=false, parallel_safe=true,  parallel_workers=0, startup_cost=4.72, total_cost=19.47, rows=1
+2025-01-12 17:27:31.030 CST [592674] STATEMENT:  select histogram_bounds from pg_stats where tablename='company' and attname='id';
+2025-01-12 17:27:31.030 CST [592674] LOG:  bestpath:tuple_fraction <= 0.0,all tuples will be retrieved.  pathtype=SubqueryScan,parallel_aware=false, parallel_safe=true,   parallel_workers=0, startup_cost=4.72, total_cost=19.47, rows=1
+2025-01-12 17:27:31.030 CST [592674] STATEMENT:  select histogram_bounds from pg_stats where tablename='company' and attname='id';
+2025-01-12 19:46:07.776 CST [592674] LOG:  候选者: pathtype=IndexScan,parallel_aware=false, parallel_safe=true,  parallel_workers=0, startup_cost=0.29, total_cost=75.28, rows=2000
+2025-01-12 19:46:07.776 CST [592674] STATEMENT:  explain select * from  company where Id >8000;
+2025-01-12 19:46:07.776 CST [592674] LOG:  bestpath:tuple_fraction <= 0.0,all tuples will be retrieved.  pathtype=IndexScan,parallel_aware=false, parallel_safe=true,   parallel_workers=0, startup_cost=0.29, total_cost=75.28, rows=2000
+2025-01-12 19:46:07.776 CST [592674] STATEMENT:  explain select * from  company where Id >8000;
+2025-01-12 19:46:15.464 CST [592674] LOG:  候选者: pathtype=IndexScan,parallel_aware=false, parallel_safe=true,  parallel_workers=0, startup_cost=0.29, total_cost=182.78, rows=5000
+2025-01-12 19:46:15.464 CST [592674] STATEMENT:  explain select * from  company where Id >5000;
+2025-01-12 19:46:15.464 CST [592674] LOG:  bestpath:tuple_fraction <= 0.0,all tuples will be retrieved.  pathtype=IndexScan,parallel_aware=false, parallel_safe=true,   parallel_workers=0, startup_cost=0.29, total_cost=182.78, rows=5000
+2025-01-12 19:46:15.464 CST [592674] STATEMENT:  explain select * from  company where Id >5000;
+2025-01-12 19:46:44.167 CST [592674] LOG:  候选者: pathtype=IndexScan,parallel_aware=false, parallel_safe=true,  parallel_workers=0, startup_cost=0.29, total_cost=39.78, rows=1000
+2025-01-12 19:46:44.167 CST [592674] STATEMENT:  explain select * from  company where Id >9000;
+2025-01-12 19:46:44.167 CST [592674] LOG:  bestpath:tuple_fraction <= 0.0,all tuples will be retrieved.  pathtype=IndexScan,parallel_aware=false, parallel_safe=true,   parallel_workers=0, startup_cost=0.29, total_cost=39.78, rows=1000
+2025-01-12 19:46:44.167 CST [592674] STATEMENT:  explain select * from  company where Id >9000;
+2025-01-12 19:47:01.512 CST [592674] LOG:  候选者: pathtype=IndexScan,parallel_aware=false, parallel_safe=true,  parallel_workers=0, startup_cost=0.29, total_cost=111.78, rows=3000
+2025-01-12 19:47:01.512 CST [592674] STATEMENT:  explain select * from  company where Id >7000;
+2025-01-12 19:47:01.512 CST [592674] LOG:  bestpath:tuple_fraction <= 0.0,all tuples will be retrieved.  pathtype=IndexScan,parallel_aware=false, parallel_safe=true,   parallel_workers=0, startup_cost=0.29, total_cost=111.78, rows=3000
+2025-01-12 19:47:01.512 CST [592674] STATEMENT:  explain select * from  company where Id >7000;
+2025-01-12 19:47:14.711 CST [592674] LOG:  候选者: pathtype=SeqScan,parallel_aware=false, parallel_safe=true,  parallel_workers=0, startup_cost=0.00, total_cost=189.00, rows=7000
+2025-01-12 19:47:14.711 CST [592674] STATEMENT:  explain select * from  company where Id >3000;
+2025-01-12 19:47:14.711 CST [592674] LOG:  bestpath:tuple_fraction <= 0.0,all tuples will be retrieved.  pathtype=SeqScan,parallel_aware=false, parallel_safe=true,   parallel_workers=0, startup_cost=0.00, total_cost=189.00, rows=7000
+2025-01-12 19:47:14.711 CST [592674] STATEMENT:  explain select * from  company where Id >3000;
+2025-01-12 19:47:21.814 CST [592674] LOG:  候选者: pathtype=SeqScan,parallel_aware=false, parallel_safe=true,  parallel_workers=0, startup_cost=0.00, total_cost=189.00, rows=6000
+2025-01-12 19:47:21.814 CST [592674] STATEMENT:  explain select * from  company where Id >4000;
+2025-01-12 19:47:21.814 CST [592674] LOG:  bestpath:tuple_fraction <= 0.0,all tuples will be retrieved.  pathtype=SeqScan,parallel_aware=false, parallel_safe=true,   parallel_workers=0, startup_cost=0.00, total_cost=189.00, rows=6000
+2025-01-12 19:47:21.814 CST [592674] STATEMENT:  explain select * from  company where Id >4000;
+2025-01-12 19:47:28.272 CST [592674] LOG:  候选者: pathtype=IndexScan,parallel_aware=false, parallel_safe=true,  parallel_workers=0, startup_cost=0.29, total_cost=182.78, rows=5000
+2025-01-12 19:47:28.272 CST [592674] STATEMENT:  explain select * from  company where Id >5000;
+2025-01-12 19:47:28.272 CST [592674] LOG:  bestpath:tuple_fraction <= 0.0,all tuples will be retrieved.  pathtype=IndexScan,parallel_aware=false, parallel_safe=true,   parallel_workers=0, startup_cost=0.29, total_cost=182.78, rows=5000
+2025-01-12 19:47:28.272 CST [592674] STATEMENT:  explain select * from  company where Id >5000;
+2025-01-12 19:47:43.882 CST [592674] LOG:  候选者: pathtype=IndexScan,parallel_aware=false, parallel_safe=true,  parallel_workers=0, startup_cost=0.29, total_cost=157.27, rows=3999
+2025-01-12 19:47:43.882 CST [592674] STATEMENT:  explain select * from  company where Id<9000 and  Id >5000;
+2025-01-12 19:47:43.882 CST [592674] LOG:  bestpath:tuple_fraction <= 0.0,all tuples will be retrieved.  pathtype=IndexScan,parallel_aware=false, parallel_safe=true,   parallel_workers=0, startup_cost=0.29, total_cost=157.27, rows=3999
+2025-01-12 19:47:43.882 CST [592674] STATEMENT:  explain select * from  company where Id<9000 and  Id >5000;
+2025-01-12 19:48:20.171 CST [592674] LOG:  候选者: pathtype=SeqScan,parallel_aware=false, parallel_safe=true,  parallel_workers=0, startup_cost=0.00, total_cost=214.00, rows=7999
+2025-01-12 19:48:20.171 CST [592674] STATEMENT:  explain select * from  company where Id<9000 and  Id >1000;
+2025-01-12 19:48:20.171 CST [592674] LOG:  bestpath:tuple_fraction <= 0.0,all tuples will be retrieved.  pathtype=SeqScan,parallel_aware=false, parallel_safe=true,   parallel_workers=0, startup_cost=0.00, total_cost=214.00, rows=7999
+2025-01-12 19:48:20.171 CST [592674] STATEMENT:  explain select * from  company where Id<9000 and  Id >1000;
+2025-01-12 19:48:30.104 CST [592674] LOG:  候选者: pathtype=SeqScan,parallel_aware=false, parallel_safe=true,  parallel_workers=0, startup_cost=0.00, total_cost=214.00, rows=8989
+2025-01-12 19:48:30.104 CST [592674] STATEMENT:  explain select * from  company where Id<9000 and  Id >10;
+2025-01-12 19:48:30.104 CST [592674] LOG:  bestpath:tuple_fraction <= 0.0,all tuples will be retrieved.  pathtype=SeqScan,parallel_aware=false, parallel_safe=true,   parallel_workers=0, startup_cost=0.00, total_cost=214.00, rows=8989
+2025-01-12 19:48:30.104 CST [592674] STATEMENT:  explain select * from  company where Id<9000 and  Id >10;
+2025-01-12 19:48:42.227 CST [592674] LOG:  候选者: pathtype=IndexScan,parallel_aware=false, parallel_safe=true,  parallel_workers=0, startup_cost=0.29, total_cost=8.30, rows=1
+2025-01-12 19:48:42.227 CST [592674] STATEMENT:  explain select * from  company where Id<9000 and  Id >9090;
+2025-01-12 19:48:42.227 CST [592674] LOG:  bestpath:tuple_fraction <= 0.0,all tuples will be retrieved.  pathtype=IndexScan,parallel_aware=false, parallel_safe=true,   parallel_workers=0, startup_cost=0.29, total_cost=8.30, rows=1
+2025-01-12 19:48:42.227 CST [592674] STATEMENT:  explain select * from  company where Id<9000 and  Id >9090;
+2025-01-12 19:48:50.299 CST [592674] LOG:  候选者: pathtype=IndexScan,parallel_aware=false, parallel_safe=true,  parallel_workers=0, startup_cost=0.29, total_cost=8.30, rows=1
+2025-01-12 19:48:50.299 CST [592674] STATEMENT:  explain select * from  company where Id<9000 and  Id =9090;
+2025-01-12 19:48:50.299 CST [592674] LOG:  bestpath:tuple_fraction <= 0.0,all tuples will be retrieved.  pathtype=IndexScan,parallel_aware=false, parallel_safe=true,   parallel_workers=0, startup_cost=0.29, total_cost=8.30, rows=1
+2025-01-12 19:48:50.299 CST [592674] STATEMENT:  explain select * from  company where Id<9000 and  Id =9090;
+2025-01-12 19:49:18.500 CST [592674] LOG:  候选者: pathtype=IndexScan,parallel_aware=false, parallel_safe=true,  parallel_workers=0, startup_cost=0.29, total_cost=8.30, rows=1
+2025-01-12 19:49:18.500 CST [592674] STATEMENT:  explain select * from  company where Id<9000 and  Id >9000;
+2025-01-12 19:49:18.500 CST [592674] LOG:  bestpath:tuple_fraction <= 0.0,all tuples will be retrieved.  pathtype=IndexScan,parallel_aware=false, parallel_safe=true,   parallel_workers=0, startup_cost=0.29, total_cost=8.30, rows=1
+2025-01-12 19:49:18.500 CST [592674] STATEMENT:  explain select * from  company where Id<9000 and  Id >9000;
+2025-01-12 19:49:28.747 CST [592674] LOG:  候选者: pathtype=IndexScan,parallel_aware=false, parallel_safe=true,  parallel_workers=0, startup_cost=0.29, total_cost=42.27, rows=999
+2025-01-12 19:49:28.747 CST [592674] STATEMENT:  explain select * from  company where Id<9000 and  Id >8000;
+2025-01-12 19:49:28.747 CST [592674] LOG:  bestpath:tuple_fraction <= 0.0,all tuples will be retrieved.  pathtype=IndexScan,parallel_aware=false, parallel_safe=true,   parallel_workers=0, startup_cost=0.29, total_cost=42.27, rows=999
+2025-01-12 19:49:28.747 CST [592674] STATEMENT:  explain select * from  company where Id<9000 and  Id >8000;
+2025-01-12 19:49:34.171 CST [592674] LOG:  候选者: pathtype=IndexScan,parallel_aware=false, parallel_safe=true,  parallel_workers=0, startup_cost=0.29, total_cost=42.28, rows=1000
+2025-01-12 19:49:34.171 CST [592674] STATEMENT:  explain select * from  company where Id<9000 and  Id >=8000;
+2025-01-12 19:49:34.171 CST [592674] LOG:  bestpath:tuple_fraction <= 0.0,all tuples will be retrieved.  pathtype=IndexScan,parallel_aware=false, parallel_safe=true,   parallel_workers=0, startup_cost=0.29, total_cost=42.28, rows=1000
+2025-01-12 19:49:34.171 CST [592674] STATEMENT:  explain select * from  company where Id<9000 and  Id >=8000;
+2025-01-12 19:49:51.769 CST [592674] LOG:  候选者: pathtype=IndexScan,parallel_aware=false, parallel_safe=true,  parallel_workers=0, startup_cost=0.29, total_cost=80.28, rows=2000
+2025-01-12 19:49:51.769 CST [592674] STATEMENT:  explain select * from  company where Id<9000 and  Id >=7000;
+2025-01-12 19:49:51.770 CST [592674] LOG:  bestpath:tuple_fraction <= 0.0,all tuples will be retrieved.  pathtype=IndexScan,parallel_aware=false, parallel_safe=true,   parallel_workers=0, startup_cost=0.29, total_cost=80.28, rows=2000
+2025-01-12 19:49:51.770 CST [592674] STATEMENT:  explain select * from  company where Id<9000 and  Id >=7000;
+2025-01-12 19:50:14.641 CST [592674] LOG:  候选者: pathtype=IndexScan,parallel_aware=false, parallel_safe=true,  parallel_workers=0, startup_cost=0.29, total_cost=80.28, rows=2000
+2025-01-12 19:50:14.641 CST [592674] STATEMENT:  explain select id,name from  company where Id<9000 and  Id >=7000;
+2025-01-12 19:50:14.641 CST [592674] LOG:  bestpath:tuple_fraction <= 0.0,all tuples will be retrieved.  pathtype=IndexScan,parallel_aware=false, parallel_safe=true,   parallel_workers=0, startup_cost=0.29, total_cost=80.28, rows=2000
+2025-01-12 19:50:14.641 CST [592674] STATEMENT:  explain select id,name from  company where Id<9000 and  Id >=7000;
+2025-01-12 19:50:44.789 CST [592674] LOG:  候选者: pathtype=IndexScan,parallel_aware=false, parallel_safe=true,  parallel_workers=0, startup_cost=0.29, total_cost=39.78, rows=1000
+2025-01-12 19:50:44.789 CST [592674] STATEMENT:  explain select id,name from  company where Id>9000;
+2025-01-12 19:50:44.789 CST [592674] LOG:  bestpath:tuple_fraction <= 0.0,all tuples will be retrieved.  pathtype=IndexScan,parallel_aware=false, parallel_safe=true,   parallel_workers=0, startup_cost=0.29, total_cost=39.78, rows=1000
+2025-01-12 19:50:44.789 CST [592674] STATEMENT:  explain select id,name from  company where Id>9000;
+2025-01-12 19:51:17.088 CST [592674] LOG:  候选者: pathtype=IndexScan,parallel_aware=false, parallel_safe=true,  parallel_workers=0, startup_cost=0.29, total_cost=37.03, rows=900
+2025-01-12 19:51:17.088 CST [592674] STATEMENT:  explain select id,name from  company where Id>9100;
+2025-01-12 19:51:17.088 CST [592674] LOG:  bestpath:tuple_fraction <= 0.0,all tuples will be retrieved.  pathtype=IndexScan,parallel_aware=false, parallel_safe=true,   parallel_workers=0, startup_cost=0.29, total_cost=37.03, rows=900
+2025-01-12 19:51:17.088 CST [592674] STATEMENT:  explain select id,name from  company where Id>9100;
+2025-01-12 19:51:22.515 CST [592674] LOG:  候选者: pathtype=IndexScan,parallel_aware=false, parallel_safe=true,  parallel_workers=0, startup_cost=0.29, total_cost=73.53, rows=1900
+2025-01-12 19:51:22.515 CST [592674] STATEMENT:  explain select id,name from  company where Id>8100;
+2025-01-12 19:51:22.515 CST [592674] LOG:  bestpath:tuple_fraction <= 0.0,all tuples will be retrieved.  pathtype=IndexScan,parallel_aware=false, parallel_safe=true,   parallel_workers=0, startup_cost=0.29, total_cost=73.53, rows=1900
+2025-01-12 19:51:22.515 CST [592674] STATEMENT:  explain select id,name from  company where Id>8100;
+2025-01-12 19:51:27.202 CST [592674] LOG:  候选者: pathtype=SeqScan,parallel_aware=false, parallel_safe=true,  parallel_workers=0, startup_cost=0.00, total_cost=189.00, rows=8900
+2025-01-12 19:51:27.202 CST [592674] STATEMENT:  explain select id,name from  company where Id>1100;
+2025-01-12 19:51:27.202 CST [592674] LOG:  bestpath:tuple_fraction <= 0.0,all tuples will be retrieved.  pathtype=SeqScan,parallel_aware=false, parallel_safe=true,   parallel_workers=0, startup_cost=0.00, total_cost=189.00, rows=8900
+2025-01-12 19:51:27.202 CST [592674] STATEMENT:  explain select id,name from  company where Id>1100;
+2025-01-12 19:51:32.811 CST [592674] LOG:  候选者: pathtype=IndexScan,parallel_aware=false, parallel_safe=true,  parallel_workers=0, startup_cost=0.29, total_cost=181.03, rows=4900
+2025-01-12 19:51:32.811 CST [592674] STATEMENT:  explain select id,name from  company where Id>5100;
+2025-01-12 19:51:32.811 CST [592674] LOG:  bestpath:tuple_fraction <= 0.0,all tuples will be retrieved.  pathtype=IndexScan,parallel_aware=false, parallel_safe=true,   parallel_workers=0, startup_cost=0.29, total_cost=181.03, rows=4900
+2025-01-12 19:51:32.811 CST [592674] STATEMENT:  explain select id,name from  company where Id>5100;
+2025-01-12 19:51:37.250 CST [592674] LOG:  候选者: pathtype=IndexScan,parallel_aware=false, parallel_safe=true,  parallel_workers=0, startup_cost=0.29, total_cost=178.28, rows=4800
+2025-01-12 19:51:37.250 CST [592674] STATEMENT:  explain select id,name from  company where Id>5200;
+2025-01-12 19:51:37.250 CST [592674] LOG:  bestpath:tuple_fraction <= 0.0,all tuples will be retrieved.  pathtype=IndexScan,parallel_aware=false, parallel_safe=true,   parallel_workers=0, startup_cost=0.29, total_cost=178.28, rows=4800
+2025-01-12 19:51:37.250 CST [592674] STATEMENT:  explain select id,name from  company where Id>5200;
+2025-01-12 19:51:42.251 CST [592674] LOG:  候选者: pathtype=IndexScan,parallel_aware=false, parallel_safe=true,  parallel_workers=0, startup_cost=0.29, total_cost=176.53, rows=4700
+2025-01-12 19:51:42.251 CST [592674] STATEMENT:  explain select id,name from  company where Id>5300;
+2025-01-12 19:51:42.251 CST [592674] LOG:  bestpath:tuple_fraction <= 0.0,all tuples will be retrieved.  pathtype=IndexScan,parallel_aware=false, parallel_safe=true,   parallel_workers=0, startup_cost=0.29, total_cost=176.53, rows=4700
+2025-01-12 19:51:42.251 CST [592674] STATEMENT:  explain select id,name from  company where Id>5300;
+2025-01-12 19:51:46.685 CST [592674] LOG:  候选者: pathtype=IndexScan,parallel_aware=false, parallel_safe=true,  parallel_workers=0, startup_cost=0.29, total_cost=140.03, rows=3700
+2025-01-12 19:51:46.685 CST [592674] STATEMENT:  explain select id,name from  company where Id>6300;
+2025-01-12 19:51:46.685 CST [592674] LOG:  bestpath:tuple_fraction <= 0.0,all tuples will be retrieved.  pathtype=IndexScan,parallel_aware=false, parallel_safe=true,   parallel_workers=0, startup_cost=0.29, total_cost=140.03, rows=3700
+2025-01-12 19:51:46.685 CST [592674] STATEMENT:  explain select id,name from  company where Id>6300;
+2025-01-12 19:51:51.714 CST [592674] LOG:  候选者: pathtype=SeqScan,parallel_aware=false, parallel_safe=true,  parallel_workers=0, startup_cost=0.00, total_cost=189.00, rows=5700
+2025-01-12 19:51:51.714 CST [592674] STATEMENT:  explain select id,name from  company where Id>4300;
+2025-01-12 19:51:51.714 CST [592674] LOG:  bestpath:tuple_fraction <= 0.0,all tuples will be retrieved.  pathtype=SeqScan,parallel_aware=false, parallel_safe=true,   parallel_workers=0, startup_cost=0.00, total_cost=189.00, rows=5700
+2025-01-12 19:51:51.714 CST [592674] STATEMENT:  explain select id,name from  company where Id>4300;
+2025-01-12 19:51:56.835 CST [592674] LOG:  候选者: pathtype=SeqScan,parallel_aware=false, parallel_safe=true,  parallel_workers=0, startup_cost=0.00, total_cost=189.00, rows=5600
+2025-01-12 19:51:56.835 CST [592674] STATEMENT:  explain select id,name from  company where Id>4400;
+2025-01-12 19:51:56.835 CST [592674] LOG:  bestpath:tuple_fraction <= 0.0,all tuples will be retrieved.  pathtype=SeqScan,parallel_aware=false, parallel_safe=true,   parallel_workers=0, startup_cost=0.00, total_cost=189.00, rows=5600
+2025-01-12 19:51:56.835 CST [592674] STATEMENT:  explain select id,name from  company where Id>4400;
+2025-01-12 19:52:01.140 CST [592674] LOG:  候选者: pathtype=SeqScan,parallel_aware=false, parallel_safe=true,  parallel_workers=0, startup_cost=0.00, total_cost=189.00, rows=5500
+2025-01-12 19:52:01.140 CST [592674] STATEMENT:  explain select id,name from  company where Id>4500;
+2025-01-12 19:52:01.140 CST [592674] LOG:  bestpath:tuple_fraction <= 0.0,all tuples will be retrieved.  pathtype=SeqScan,parallel_aware=false, parallel_safe=true,   parallel_workers=0, startup_cost=0.00, total_cost=189.00, rows=5500
+2025-01-12 19:52:01.140 CST [592674] STATEMENT:  explain select id,name from  company where Id>4500;
+2025-01-12 19:52:05.547 CST [592674] LOG:  候选者: pathtype=SeqScan,parallel_aware=false, parallel_safe=true,  parallel_workers=0, startup_cost=0.00, total_cost=189.00, rows=5400
+2025-01-12 19:52:05.547 CST [592674] STATEMENT:  explain select id,name from  company where Id>4600;
+2025-01-12 19:52:05.547 CST [592674] LOG:  bestpath:tuple_fraction <= 0.0,all tuples will be retrieved.  pathtype=SeqScan,parallel_aware=false, parallel_safe=true,   parallel_workers=0, startup_cost=0.00, total_cost=189.00, rows=5400
+2025-01-12 19:52:05.547 CST [592674] STATEMENT:  explain select id,name from  company where Id>4600;
+2025-01-12 19:52:09.787 CST [592674] LOG:  候选者: pathtype=SeqScan,parallel_aware=false, parallel_safe=true,  parallel_workers=0, startup_cost=0.00, total_cost=189.00, rows=5400
+2025-01-12 19:52:09.787 CST [592674] STATEMENT:  explain select id,name from  company where Id>4600;
+2025-01-12 19:52:09.787 CST [592674] LOG:  bestpath:tuple_fraction <= 0.0,all tuples will be retrieved.  pathtype=SeqScan,parallel_aware=false, parallel_safe=true,   parallel_workers=0, startup_cost=0.00, total_cost=189.00, rows=5400
+2025-01-12 19:52:09.787 CST [592674] STATEMENT:  explain select id,name from  company where Id>4600;
+2025-01-12 19:52:14.363 CST [592674] LOG:  候选者: pathtype=SeqScan,parallel_aware=false, parallel_safe=true,  parallel_workers=0, startup_cost=0.00, total_cost=189.00, rows=5300
+2025-01-12 19:52:14.363 CST [592674] STATEMENT:  explain select id,name from  company where Id>4700;
+2025-01-12 19:52:14.364 CST [592674] LOG:  bestpath:tuple_fraction <= 0.0,all tuples will be retrieved.  pathtype=SeqScan,parallel_aware=false, parallel_safe=true,   parallel_workers=0, startup_cost=0.00, total_cost=189.00, rows=5300
+2025-01-12 19:52:14.364 CST [592674] STATEMENT:  explain select id,name from  company where Id>4700;
+2025-01-12 19:52:18.507 CST [592674] LOG:  候选者: pathtype=SeqScan,parallel_aware=false, parallel_safe=true,  parallel_workers=0, startup_cost=0.00, total_cost=189.00, rows=5200
+2025-01-12 19:52:18.507 CST [592674] STATEMENT:  explain select id,name from  company where Id>4800;
+2025-01-12 19:52:18.507 CST [592674] LOG:  bestpath:tuple_fraction <= 0.0,all tuples will be retrieved.  pathtype=SeqScan,parallel_aware=false, parallel_safe=true,   parallel_workers=0, startup_cost=0.00, total_cost=189.00, rows=5200
+2025-01-12 19:52:18.507 CST [592674] STATEMENT:  explain select id,name from  company where Id>4800;
+2025-01-12 19:52:23.269 CST [592674] LOG:  候选者: pathtype=SeqScan,parallel_aware=false, parallel_safe=true,  parallel_workers=0, startup_cost=0.00, total_cost=189.00, rows=5100
+2025-01-12 19:52:23.269 CST [592674] STATEMENT:  explain select id,name from  company where Id>4900;
+2025-01-12 19:52:23.269 CST [592674] LOG:  bestpath:tuple_fraction <= 0.0,all tuples will be retrieved.  pathtype=SeqScan,parallel_aware=false, parallel_safe=true,   parallel_workers=0, startup_cost=0.00, total_cost=189.00, rows=5100
+2025-01-12 19:52:23.269 CST [592674] STATEMENT:  explain select id,name from  company where Id>4900;
+2025-01-12 19:52:29.900 CST [592674] LOG:  候选者: pathtype=IndexScan,parallel_aware=false, parallel_safe=true,  parallel_workers=0, startup_cost=0.29, total_cost=154.03, rows=4100
+2025-01-12 19:52:29.900 CST [592674] STATEMENT:  explain select id,name from  company where Id>5900;
+2025-01-12 19:52:29.900 CST [592674] LOG:  bestpath:tuple_fraction <= 0.0,all tuples will be retrieved.  pathtype=IndexScan,parallel_aware=false, parallel_safe=true,   parallel_workers=0, startup_cost=0.29, total_cost=154.03, rows=4100
+2025-01-12 19:52:29.900 CST [592674] STATEMENT:  explain select id,name from  company where Id>5900;
+2025-01-12 19:52:38.931 CST [592674] LOG:  候选者: pathtype=IndexScan,parallel_aware=false, parallel_safe=true,  parallel_workers=0, startup_cost=0.29, total_cost=182.78, rows=5000
+2025-01-12 19:52:38.931 CST [592674] STATEMENT:  explain select id,name from  company where Id>5000;
+2025-01-12 19:52:38.931 CST [592674] LOG:  bestpath:tuple_fraction <= 0.0,all tuples will be retrieved.  pathtype=IndexScan,parallel_aware=false, parallel_safe=true,   parallel_workers=0, startup_cost=0.29, total_cost=182.78, rows=5000
+2025-01-12 19:52:38.931 CST [592674] STATEMENT:  explain select id,name from  company where Id>5000;
+2025-01-12 19:53:18.119 CST [592674] ERROR:  syntax error at or near "/" at character 1
+2025-01-12 19:53:18.119 CST [592674] STATEMENT:  /test_a;
+2025-01-12 19:54:46.350 CST [592674] LOG:  候选者: pathtype=Sort,parallel_aware=false, parallel_safe=true,  parallel_workers=0, startup_cost=9.42, total_cost=9.42, rows=1
+2025-01-12 19:54:46.350 CST [592674] STATEMENT:  SELECT c.oid,
+	  n.nspname,
+	  c.relname
+	FROM pg_catalog.pg_class c
+	     LEFT JOIN pg_catalog.pg_namespace n ON n.oid = c.relnamespace
+	WHERE c.relname OPERATOR(pg_catalog.~) '^(company)$' COLLATE pg_catalog.default
+	  AND pg_catalog.pg_table_is_visible(c.oid)
+	ORDER BY 2, 3;
+2025-01-12 19:54:46.350 CST [592674] LOG:  bestpath:tuple_fraction <= 0.0,all tuples will be retrieved.  pathtype=Sort,parallel_aware=false, parallel_safe=true,   parallel_workers=0, startup_cost=9.42, total_cost=9.42, rows=1
+2025-01-12 19:54:46.350 CST [592674] STATEMENT:  SELECT c.oid,
+	  n.nspname,
+	  c.relname
+	FROM pg_catalog.pg_class c
+	     LEFT JOIN pg_catalog.pg_namespace n ON n.oid = c.relnamespace
+	WHERE c.relname OPERATOR(pg_catalog.~) '^(company)$' COLLATE pg_catalog.default
+	  AND pg_catalog.pg_table_is_visible(c.oid)
+	ORDER BY 2, 3;
+2025-01-12 19:54:46.355 CST [592674] LOG:  候选者: pathtype=Result,parallel_aware=false, parallel_safe=true,  parallel_workers=0, startup_cost=0.27, total_cost=9.46, rows=1
+2025-01-12 19:54:46.355 CST [592674] STATEMENT:  SELECT c.relchecks, c.relkind, c.relhasindex, c.relhasrules, c.relhastriggers, c.relrowsecurity, c.relforcerowsecurity, false AS relhasoids, c.relispartition, '', c.reltablespace, CASE WHEN c.reloftype = 0 THEN '' ELSE c.reloftype::pg_catalog.regtype::pg_catalog.text END, c.relpersistence, c.relreplident, am.amname
+	FROM pg_catalog.pg_class c
+	 LEFT JOIN pg_catalog.pg_class tc ON (c.reltoastrelid = tc.oid)
+	LEFT JOIN pg_catalog.pg_am am ON (c.relam = am.oid)
+	WHERE c.oid = '16384';
+2025-01-12 19:54:46.355 CST [592674] LOG:  bestpath:tuple_fraction <= 0.0,all tuples will be retrieved.  pathtype=Result,parallel_aware=false, parallel_safe=true,   parallel_workers=0, startup_cost=0.27, total_cost=9.46, rows=1
+2025-01-12 19:54:46.355 CST [592674] STATEMENT:  SELECT c.relchecks, c.relkind, c.relhasindex, c.relhasrules, c.relhastriggers, c.relrowsecurity, c.relforcerowsecurity, false AS relhasoids, c.relispartition, '', c.reltablespace, CASE WHEN c.reloftype = 0 THEN '' ELSE c.reloftype::pg_catalog.regtype::pg_catalog.text END, c.relpersistence, c.relreplident, am.amname
+	FROM pg_catalog.pg_class c
+	 LEFT JOIN pg_catalog.pg_class tc ON (c.reltoastrelid = tc.oid)
+	LEFT JOIN pg_catalog.pg_am am ON (c.relam = am.oid)
+	WHERE c.oid = '16384';
+2025-01-12 19:54:46.358 CST [592674] LOG:  候选者: pathtype=Result,parallel_aware=false, parallel_safe=false,  parallel_workers=0, startup_cost=0.15, total_cost=8.17, rows=1
+2025-01-12 19:54:46.358 CST [592674] STATEMENT:  SELECT a.attname,
+	  pg_catalog.format_type(a.atttypid, a.atttypmod),
+	  (SELECT pg_catalog.pg_get_expr(d.adbin, d.adrelid, true)
+	   FROM pg_catalog.pg_attrdef d
+	   WHERE d.adrelid = a.attrelid AND d.adnum = a.attnum AND a.atthasdef),
+	  a.attnotnull,
+	  (SELECT c.collname FROM pg_catalog.pg_collation c, pg_catalog.pg_type t
+	   WHERE c.oid = a.attcollation AND t.oid = a.atttypid AND a.attcollation <> t.typcollation) AS attcollation,
+	  a.attidentity,
+	  a.attgenerated
+	FROM pg_catalog.pg_attribute a
+	WHERE a.attrelid = '16384' AND a.attnum > 0 AND NOT a.attisdropped
+	ORDER BY a.attnum;
+2025-01-12 19:54:46.358 CST [592674] LOG:  bestpath:tuple_fraction <= 0.0,all tuples will be retrieved.  pathtype=Result,parallel_aware=false, parallel_safe=false,   parallel_workers=0, startup_cost=0.15, total_cost=8.17, rows=1
+2025-01-12 19:54:46.358 CST [592674] STATEMENT:  SELECT a.attname,
+	  pg_catalog.format_type(a.atttypid, a.atttypmod),
+	  (SELECT pg_catalog.pg_get_expr(d.adbin, d.adrelid, true)
+	   FROM pg_catalog.pg_attrdef d
+	   WHERE d.adrelid = a.attrelid AND d.adnum = a.attnum AND a.atthasdef),
+	  a.attnotnull,
+	  (SELECT c.collname FROM pg_catalog.pg_collation c, pg_catalog.pg_type t
+	   WHERE c.oid = a.attcollation AND t.oid = a.atttypid AND a.attcollation <> t.typcollation) AS attcollation,
+	  a.attidentity,
+	  a.attgenerated
+	FROM pg_catalog.pg_attribute a
+	WHERE a.attrelid = '16384' AND a.attnum > 0 AND NOT a.attisdropped
+	ORDER BY a.attnum;
+2025-01-12 19:54:46.358 CST [592674] LOG:  候选者: pathtype=UnknownPathType,parallel_aware=false, parallel_safe=false,  parallel_workers=0, startup_cost=0.27, total_cost=10.81, rows=1
+2025-01-12 19:54:46.358 CST [592674] STATEMENT:  SELECT a.attname,
+	  pg_catalog.format_type(a.atttypid, a.atttypmod),
+	  (SELECT pg_catalog.pg_get_expr(d.adbin, d.adrelid, true)
+	   FROM pg_catalog.pg_attrdef d
+	   WHERE d.adrelid = a.attrelid AND d.adnum = a.attnum AND a.atthasdef),
+	  a.attnotnull,
+	  (SELECT c.collname FROM pg_catalog.pg_collation c, pg_catalog.pg_type t
+	   WHERE c.oid = a.attcollation AND t.oid = a.atttypid AND a.attcollation <> t.typcollation) AS attcollation,
+	  a.attidentity,
+	  a.attgenerated
+	FROM pg_catalog.pg_attribute a
+	WHERE a.attrelid = '16384' AND a.attnum > 0 AND NOT a.attisdropped
+	ORDER BY a.attnum;
+2025-01-12 19:54:46.358 CST [592674] LOG:  bestpath:tuple_fraction <= 0.0,all tuples will be retrieved.  pathtype=UnknownPathType,parallel_aware=false, parallel_safe=false,   parallel_workers=0, startup_cost=0.27, total_cost=10.81, rows=1
+2025-01-12 19:54:46.358 CST [592674] STATEMENT:  SELECT a.attname,
+	  pg_catalog.format_type(a.atttypid, a.atttypmod),
+	  (SELECT pg_catalog.pg_get_expr(d.adbin, d.adrelid, true)
+	   FROM pg_catalog.pg_attrdef d
+	   WHERE d.adrelid = a.attrelid AND d.adnum = a.attnum AND a.atthasdef),
+	  a.attnotnull,
+	  (SELECT c.collname FROM pg_catalog.pg_collation c, pg_catalog.pg_type t
+	   WHERE c.oid = a.attcollation AND t.oid = a.atttypid AND a.attcollation <> t.typcollation) AS attcollation,
+	  a.attidentity,
+	  a.attgenerated
+	FROM pg_catalog.pg_attribute a
+	WHERE a.attrelid = '16384' AND a.attnum > 0 AND NOT a.attisdropped
+	ORDER BY a.attnum;
+2025-01-12 19:54:46.359 CST [592674] LOG:  候选者: pathtype=Result,parallel_aware=false, parallel_safe=false,  parallel_workers=0, startup_cost=0.28, total_cost=69.33, rows=3
+2025-01-12 19:54:46.359 CST [592674] STATEMENT:  SELECT a.attname,
+	  pg_catalog.format_type(a.atttypid, a.atttypmod),
+	  (SELECT pg_catalog.pg_get_expr(d.adbin, d.adrelid, true)
+	   FROM pg_catalog.pg_attrdef d
+	   WHERE d.adrelid = a.attrelid AND d.adnum = a.attnum AND a.atthasdef),
+	  a.attnotnull,
+	  (SELECT c.collname FROM pg_catalog.pg_collation c, pg_catalog.pg_type t
+	   WHERE c.oid = a.attcollation AND t.oid = a.atttypid AND a.attcollation <> t.typcollation) AS attcollation,
+	  a.attidentity,
+	  a.attgenerated
+	FROM pg_catalog.pg_attribute a
+	WHERE a.attrelid = '16384' AND a.attnum > 0 AND NOT a.attisdropped
+	ORDER BY a.attnum;
+2025-01-12 19:54:46.359 CST [592674] LOG:  bestpath:tuple_fraction <= 0.0,all tuples will be retrieved.  pathtype=Result,parallel_aware=false, parallel_safe=false,   parallel_workers=0, startup_cost=0.28, total_cost=69.33, rows=3
+2025-01-12 19:54:46.359 CST [592674] STATEMENT:  SELECT a.attname,
+	  pg_catalog.format_type(a.atttypid, a.atttypmod),
+	  (SELECT pg_catalog.pg_get_expr(d.adbin, d.adrelid, true)
+	   FROM pg_catalog.pg_attrdef d
+	   WHERE d.adrelid = a.attrelid AND d.adnum = a.attnum AND a.atthasdef),
+	  a.attnotnull,
+	  (SELECT c.collname FROM pg_catalog.pg_collation c, pg_catalog.pg_type t
+	   WHERE c.oid = a.attcollation AND t.oid = a.atttypid AND a.attcollation <> t.typcollation) AS attcollation,
+	  a.attidentity,
+	  a.attgenerated
+	FROM pg_catalog.pg_attribute a
+	WHERE a.attrelid = '16384' AND a.attnum > 0 AND NOT a.attisdropped
+	ORDER BY a.attnum;
+2025-01-12 19:54:46.362 CST [592674] LOG:  候选者: pathtype=Sort,parallel_aware=false, parallel_safe=true,  parallel_workers=0, startup_cost=19.62, total_cost=19.62, rows=1
+2025-01-12 19:54:46.362 CST [592674] STATEMENT:  SELECT c2.relname, i.indisprimary, i.indisunique, i.indisclustered, i.indisvalid, pg_catalog.pg_get_indexdef(i.indexrelid, 0, true),
+	  pg_catalog.pg_get_constraintdef(con.oid, true), contype, condeferrable, condeferred, i.indisreplident, c2.reltablespace
+	FROM pg_catalog.pg_class c, pg_catalog.pg_class c2, pg_catalog.pg_index i
+	  LEFT JOIN pg_catalog.pg_constraint con ON (conrelid = i.indrelid AND conindid = i.indexrelid AND contype IN ('p','u','x'))
+	WHERE c.oid = '16384' AND c.oid = i.indrelid AND i.indexrelid = c2.oid
+	ORDER BY i.indisprimary DESC, c2.relname;
+2025-01-12 19:54:46.362 CST [592674] LOG:  bestpath:tuple_fraction <= 0.0,all tuples will be retrieved.  pathtype=Sort,parallel_aware=false, parallel_safe=true,   parallel_workers=0, startup_cost=19.62, total_cost=19.62, rows=1
+2025-01-12 19:54:46.362 CST [592674] STATEMENT:  SELECT c2.relname, i.indisprimary, i.indisunique, i.indisclustered, i.indisvalid, pg_catalog.pg_get_indexdef(i.indexrelid, 0, true),
+	  pg_catalog.pg_get_constraintdef(con.oid, true), contype, condeferrable, condeferred, i.indisreplident, c2.reltablespace
+	FROM pg_catalog.pg_class c, pg_catalog.pg_class c2, pg_catalog.pg_index i
+	  LEFT JOIN pg_catalog.pg_constraint con ON (conrelid = i.indrelid AND conindid = i.indexrelid AND contype IN ('p','u','x'))
+	WHERE c.oid = '16384' AND c.oid = i.indrelid AND i.indexrelid = c2.oid
+	ORDER BY i.indisprimary DESC, c2.relname;
+2025-01-12 19:54:46.367 CST [592674] LOG:  候选者: pathtype=Sort,parallel_aware=false, parallel_safe=false,  parallel_workers=0, startup_cost=1.28, total_cost=1.30, rows=6
+2025-01-12 19:54:46.367 CST [592674] STATEMENT:  SELECT pol.polname, pol.polpermissive,
+	  CASE WHEN pol.polroles = '{0}' THEN NULL ELSE pg_catalog.array_to_string(array(select rolname from pg_catalog.pg_roles where oid = any (pol.polroles) order by 1),',') END,
+	  pg_catalog.pg_get_expr(pol.polqual, pol.polrelid),
+	  pg_catalog.pg_get_expr(pol.polwithcheck, pol.polrelid),
+	  CASE pol.polcmd
+	    WHEN 'r' THEN 'SELECT'
+	    WHEN 'a' THEN 'INSERT'
+	    WHEN 'w' THEN 'UPDATE'
+	    WHEN 'd' THEN 'DELETE'
+	    END AS cmd
+	FROM pg_catalog.pg_policy pol
+	WHERE pol.polrelid = '16384' ORDER BY 1;
+2025-01-12 19:54:46.367 CST [592674] LOG:  bestpath:tuple_fraction <= 0.0,all tuples will be retrieved.  pathtype=Sort,parallel_aware=false, parallel_safe=false,   parallel_workers=0, startup_cost=1.28, total_cost=1.30, rows=6
+2025-01-12 19:54:46.367 CST [592674] STATEMENT:  SELECT pol.polname, pol.polpermissive,
+	  CASE WHEN pol.polroles = '{0}' THEN NULL ELSE pg_catalog.array_to_string(array(select rolname from pg_catalog.pg_roles where oid = any (pol.polroles) order by 1),',') END,
+	  pg_catalog.pg_get_expr(pol.polqual, pol.polrelid),
+	  pg_catalog.pg_get_expr(pol.polwithcheck, pol.polrelid),
+	  CASE pol.polcmd
+	    WHEN 'r' THEN 'SELECT'
+	    WHEN 'a' THEN 'INSERT'
+	    WHEN 'w' THEN 'UPDATE'
+	    WHEN 'd' THEN 'DELETE'
+	    END AS cmd
+	FROM pg_catalog.pg_policy pol
+	WHERE pol.polrelid = '16384' ORDER BY 1;
+2025-01-12 19:54:46.368 CST [592674] LOG:  候选者: pathtype=Sort,parallel_aware=false, parallel_safe=false,  parallel_workers=0, startup_cost=12.14, total_cost=12.15, rows=2
+2025-01-12 19:54:46.368 CST [592674] STATEMENT:  SELECT pol.polname, pol.polpermissive,
+	  CASE WHEN pol.polroles = '{0}' THEN NULL ELSE pg_catalog.array_to_string(array(select rolname from pg_catalog.pg_roles where oid = any (pol.polroles) order by 1),',') END,
+	  pg_catalog.pg_get_expr(pol.polqual, pol.polrelid),
+	  pg_catalog.pg_get_expr(pol.polwithcheck, pol.polrelid),
+	  CASE pol.polcmd
+	    WHEN 'r' THEN 'SELECT'
+	    WHEN 'a' THEN 'INSERT'
+	    WHEN 'w' THEN 'UPDATE'
+	    WHEN 'd' THEN 'DELETE'
+	    END AS cmd
+	FROM pg_catalog.pg_policy pol
+	WHERE pol.polrelid = '16384' ORDER BY 1;
+2025-01-12 19:54:46.368 CST [592674] LOG:  bestpath:tuple_fraction <= 0.0,all tuples will be retrieved.  pathtype=Sort,parallel_aware=false, parallel_safe=false,   parallel_workers=0, startup_cost=12.14, total_cost=12.15, rows=2
+2025-01-12 19:54:46.368 CST [592674] STATEMENT:  SELECT pol.polname, pol.polpermissive,
+	  CASE WHEN pol.polroles = '{0}' THEN NULL ELSE pg_catalog.array_to_string(array(select rolname from pg_catalog.pg_roles where oid = any (pol.polroles) order by 1),',') END,
+	  pg_catalog.pg_get_expr(pol.polqual, pol.polrelid),
+	  pg_catalog.pg_get_expr(pol.polwithcheck, pol.polrelid),
+	  CASE pol.polcmd
+	    WHEN 'r' THEN 'SELECT'
+	    WHEN 'a' THEN 'INSERT'
+	    WHEN 'w' THEN 'UPDATE'
+	    WHEN 'd' THEN 'DELETE'
+	    END AS cmd
+	FROM pg_catalog.pg_policy pol
+	WHERE pol.polrelid = '16384' ORDER BY 1;
+2025-01-12 19:54:46.370 CST [592674] LOG:  候选者: pathtype=Agg,parallel_aware=false, parallel_safe=false,  parallel_workers=0, startup_cost=20.71, total_cost=20.72, rows=1
+2025-01-12 19:54:46.370 CST [592674] STATEMENT:  SELECT oid, stxrelid::pg_catalog.regclass, stxnamespace::pg_catalog.regnamespace AS nsp, stxname,
+	  (SELECT pg_catalog.string_agg(pg_catalog.quote_ident(attname),', ')
+	   FROM pg_catalog.unnest(stxkeys) s(attnum)
+	   JOIN pg_catalog.pg_attribute a ON (stxrelid = a.attrelid AND
+	        a.attnum = s.attnum AND NOT attisdropped)) AS columns,
+	  'd' = any(stxkind) AS ndist_enabled,
+	  'f' = any(stxkind) AS deps_enabled,
+	  'm' = any(stxkind) AS mcv_enabled,
+	  stxstattarget
+	FROM pg_catalog.pg_statistic_ext stat
+	WHERE stxrelid = '16384'
+	ORDER BY 1;
+2025-01-12 19:54:46.370 CST [592674] LOG:  bestpath:tuple_fraction <= 0.0,all tuples will be retrieved.  pathtype=Agg,parallel_aware=false, parallel_safe=false,   parallel_workers=0, startup_cost=20.71, total_cost=20.72, rows=1
+2025-01-12 19:54:46.370 CST [592674] STATEMENT:  SELECT oid, stxrelid::pg_catalog.regclass, stxnamespace::pg_catalog.regnamespace AS nsp, stxname,
+	  (SELECT pg_catalog.string_agg(pg_catalog.quote_ident(attname),', ')
+	   FROM pg_catalog.unnest(stxkeys) s(attnum)
+	   JOIN pg_catalog.pg_attribute a ON (stxrelid = a.attrelid AND
+	        a.attnum = s.attnum AND NOT attisdropped)) AS columns,
+	  'd' = any(stxkind) AS ndist_enabled,
+	  'f' = any(stxkind) AS deps_enabled,
+	  'm' = any(stxkind) AS mcv_enabled,
+	  stxstattarget
+	FROM pg_catalog.pg_statistic_ext stat
+	WHERE stxrelid = '16384'
+	ORDER BY 1;
+2025-01-12 19:54:46.371 CST [592674] LOG:  候选者: pathtype=Sort,parallel_aware=false, parallel_safe=false,  parallel_workers=0, startup_cost=51.03, total_cost=51.03, rows=2
+2025-01-12 19:54:46.371 CST [592674] STATEMENT:  SELECT oid, stxrelid::pg_catalog.regclass, stxnamespace::pg_catalog.regnamespace AS nsp, stxname,
+	  (SELECT pg_catalog.string_agg(pg_catalog.quote_ident(attname),', ')
+	   FROM pg_catalog.unnest(stxkeys) s(attnum)
+	   JOIN pg_catalog.pg_attribute a ON (stxrelid = a.attrelid AND
+	        a.attnum = s.attnum AND NOT attisdropped)) AS columns,
+	  'd' = any(stxkind) AS ndist_enabled,
+	  'f' = any(stxkind) AS deps_enabled,
+	  'm' = any(stxkind) AS mcv_enabled,
+	  stxstattarget
+	FROM pg_catalog.pg_statistic_ext stat
+	WHERE stxrelid = '16384'
+	ORDER BY 1;
+2025-01-12 19:54:46.371 CST [592674] LOG:  bestpath:tuple_fraction <= 0.0,all tuples will be retrieved.  pathtype=Sort,parallel_aware=false, parallel_safe=false,   parallel_workers=0, startup_cost=51.03, total_cost=51.03, rows=2
+2025-01-12 19:54:46.371 CST [592674] STATEMENT:  SELECT oid, stxrelid::pg_catalog.regclass, stxnamespace::pg_catalog.regnamespace AS nsp, stxname,
+	  (SELECT pg_catalog.string_agg(pg_catalog.quote_ident(attname),', ')
+	   FROM pg_catalog.unnest(stxkeys) s(attnum)
+	   JOIN pg_catalog.pg_attribute a ON (stxrelid = a.attrelid AND
+	        a.attnum = s.attnum AND NOT attisdropped)) AS columns,
+	  'd' = any(stxkind) AS ndist_enabled,
+	  'f' = any(stxkind) AS deps_enabled,
+	  'm' = any(stxkind) AS mcv_enabled,
+	  stxstattarget
+	FROM pg_catalog.pg_statistic_ext stat
+	WHERE stxrelid = '16384'
+	ORDER BY 1;
+2025-01-12 19:54:46.373 CST [592674] LOG:  候选者: pathtype=Result,parallel_aware=false, parallel_safe=true,  parallel_workers=0, startup_cost=75.31, total_cost=76.29, rows=395
+2025-01-12 19:54:46.373 CST [592674] STATEMENT:  SELECT pubname
+	FROM pg_catalog.pg_publication p
+	JOIN pg_catalog.pg_publication_rel pr ON p.oid = pr.prpubid
+	WHERE pr.prrelid = '16384'
+	UNION ALL
+	SELECT pubname
+	FROM pg_catalog.pg_publication p
+	WHERE p.puballtables AND pg_catalog.pg_relation_is_publishable('16384')
+	ORDER BY 1;
+2025-01-12 19:54:46.373 CST [592674] LOG:  候选者: pathtype=UnknownPathType,parallel_aware=false, parallel_safe=false,  parallel_workers=0, startup_cost=1041.62, total_cost=1079.89, rows=328
+2025-01-12 19:54:46.373 CST [592674] STATEMENT:  SELECT pubname
+	FROM pg_catalog.pg_publication p
+	JOIN pg_catalog.pg_publication_rel pr ON p.oid = pr.prpubid
+	WHERE pr.prrelid = '16384'
+	UNION ALL
+	SELECT pubname
+	FROM pg_catalog.pg_publication p
+	WHERE p.puballtables AND pg_catalog.pg_relation_is_publishable('16384')
+	ORDER BY 1;
+2025-01-12 19:54:46.373 CST [592674] LOG:  bestpath:tuple_fraction <= 0.0,all tuples will be retrieved.  pathtype=Result,parallel_aware=false, parallel_safe=true,   parallel_workers=0, startup_cost=75.31, total_cost=76.29, rows=395
+2025-01-12 19:54:46.373 CST [592674] STATEMENT:  SELECT pubname
+	FROM pg_catalog.pg_publication p
+	JOIN pg_catalog.pg_publication_rel pr ON p.oid = pr.prpubid
+	WHERE pr.prrelid = '16384'
+	UNION ALL
+	SELECT pubname
+	FROM pg_catalog.pg_publication p
+	WHERE p.puballtables AND pg_catalog.pg_relation_is_publishable('16384')
+	ORDER BY 1;
+2025-01-12 19:54:46.375 CST [592674] LOG:  候选者: pathtype=Sort,parallel_aware=false, parallel_safe=true,  parallel_workers=0, startup_cost=35.41, total_cost=35.44, rows=10
+2025-01-12 19:54:46.375 CST [592674] STATEMENT:  SELECT c.oid::pg_catalog.regclass
+	FROM pg_catalog.pg_class c, pg_catalog.pg_inherits i
+	WHERE c.oid = i.inhparent AND i.inhrelid = '16384'
+	  AND c.relkind != 'p' AND c.relkind != 'I'
+	ORDER BY inhseqno;
+2025-01-12 19:54:46.375 CST [592674] LOG:  bestpath:tuple_fraction <= 0.0,all tuples will be retrieved.  pathtype=Sort,parallel_aware=false, parallel_safe=true,   parallel_workers=0, startup_cost=35.41, total_cost=35.44, rows=10
+2025-01-12 19:54:46.375 CST [592674] STATEMENT:  SELECT c.oid::pg_catalog.regclass
+	FROM pg_catalog.pg_class c, pg_catalog.pg_inherits i
+	WHERE c.oid = i.inhparent AND i.inhrelid = '16384'
+	  AND c.relkind != 'p' AND c.relkind != 'I'
+	ORDER BY inhseqno;
+2025-01-12 19:54:46.377 CST [592674] LOG:  候选者: pathtype=Sort,parallel_aware=false, parallel_safe=true,  parallel_workers=0, startup_cost=33.61, total_cost=33.63, rows=10
+2025-01-12 19:54:46.377 CST [592674] STATEMENT:  SELECT c.oid::pg_catalog.regclass, c.relkind, pg_catalog.pg_get_expr(c.relpartbound, c.oid)
+	FROM pg_catalog.pg_class c, pg_catalog.pg_inherits i
+	WHERE c.oid = i.inhrelid AND i.inhparent = '16384'
+	ORDER BY pg_catalog.pg_get_expr(c.relpartbound, c.oid) = 'DEFAULT', c.oid::pg_catalog.regclass::pg_catalog.text;
+2025-01-12 19:54:46.377 CST [592674] LOG:  bestpath:tuple_fraction <= 0.0,all tuples will be retrieved.  pathtype=Sort,parallel_aware=false, parallel_safe=true,   parallel_workers=0, startup_cost=33.61, total_cost=33.63, rows=10
+2025-01-12 19:54:46.377 CST [592674] STATEMENT:  SELECT c.oid::pg_catalog.regclass, c.relkind, pg_catalog.pg_get_expr(c.relpartbound, c.oid)
+	FROM pg_catalog.pg_class c, pg_catalog.pg_inherits i
+	WHERE c.oid = i.inhrelid AND i.inhparent = '16384'
+	ORDER BY pg_catalog.pg_get_expr(c.relpartbound, c.oid) = 'DEFAULT', c.oid::pg_catalog.regclass::pg_catalog.text;
+2025-01-12 19:55:00.604 CST [592674] LOG:  候选者: pathtype=Sort,parallel_aware=false, parallel_safe=true,  parallel_workers=0, startup_cost=9.42, total_cost=9.42, rows=1
+2025-01-12 19:55:00.604 CST [592674] STATEMENT:  SELECT c.oid,
+	  n.nspname,
+	  c.relname
+	FROM pg_catalog.pg_class c
+	     LEFT JOIN pg_catalog.pg_namespace n ON n.oid = c.relnamespace
+	WHERE c.relname OPERATOR(pg_catalog.~) '^(test_a)$' COLLATE pg_catalog.default
+	  AND pg_catalog.pg_table_is_visible(c.oid)
+	ORDER BY 2, 3;
+2025-01-12 19:55:00.604 CST [592674] LOG:  bestpath:tuple_fraction <= 0.0,all tuples will be retrieved.  pathtype=Sort,parallel_aware=false, parallel_safe=true,   parallel_workers=0, startup_cost=9.42, total_cost=9.42, rows=1
+2025-01-12 19:55:00.604 CST [592674] STATEMENT:  SELECT c.oid,
+	  n.nspname,
+	  c.relname
+	FROM pg_catalog.pg_class c
+	     LEFT JOIN pg_catalog.pg_namespace n ON n.oid = c.relnamespace
+	WHERE c.relname OPERATOR(pg_catalog.~) '^(test_a)$' COLLATE pg_catalog.default
+	  AND pg_catalog.pg_table_is_visible(c.oid)
+	ORDER BY 2, 3;
+2025-01-12 19:55:00.606 CST [592674] LOG:  候选者: pathtype=Result,parallel_aware=false, parallel_safe=true,  parallel_workers=0, startup_cost=0.27, total_cost=9.46, rows=1
+2025-01-12 19:55:00.606 CST [592674] STATEMENT:  SELECT c.relchecks, c.relkind, c.relhasindex, c.relhasrules, c.relhastriggers, c.relrowsecurity, c.relforcerowsecurity, false AS relhasoids, c.relispartition, '', c.reltablespace, CASE WHEN c.reloftype = 0 THEN '' ELSE c.reloftype::pg_catalog.regtype::pg_catalog.text END, c.relpersistence, c.relreplident, am.amname
+	FROM pg_catalog.pg_class c
+	 LEFT JOIN pg_catalog.pg_class tc ON (c.reltoastrelid = tc.oid)
+	LEFT JOIN pg_catalog.pg_am am ON (c.relam = am.oid)
+	WHERE c.oid = '16392';
+2025-01-12 19:55:00.607 CST [592674] LOG:  bestpath:tuple_fraction <= 0.0,all tuples will be retrieved.  pathtype=Result,parallel_aware=false, parallel_safe=true,   parallel_workers=0, startup_cost=0.27, total_cost=9.46, rows=1
+2025-01-12 19:55:00.607 CST [592674] STATEMENT:  SELECT c.relchecks, c.relkind, c.relhasindex, c.relhasrules, c.relhastriggers, c.relrowsecurity, c.relforcerowsecurity, false AS relhasoids, c.relispartition, '', c.reltablespace, CASE WHEN c.reloftype = 0 THEN '' ELSE c.reloftype::pg_catalog.regtype::pg_catalog.text END, c.relpersistence, c.relreplident, am.amname
+	FROM pg_catalog.pg_class c
+	 LEFT JOIN pg_catalog.pg_class tc ON (c.reltoastrelid = tc.oid)
+	LEFT JOIN pg_catalog.pg_am am ON (c.relam = am.oid)
+	WHERE c.oid = '16392';
+2025-01-12 19:55:00.608 CST [592674] LOG:  候选者: pathtype=Result,parallel_aware=false, parallel_safe=false,  parallel_workers=0, startup_cost=0.15, total_cost=8.17, rows=1
+2025-01-12 19:55:00.608 CST [592674] STATEMENT:  SELECT a.attname,
+	  pg_catalog.format_type(a.atttypid, a.atttypmod),
+	  (SELECT pg_catalog.pg_get_expr(d.adbin, d.adrelid, true)
+	   FROM pg_catalog.pg_attrdef d
+	   WHERE d.adrelid = a.attrelid AND d.adnum = a.attnum AND a.atthasdef),
+	  a.attnotnull,
+	  (SELECT c.collname FROM pg_catalog.pg_collation c, pg_catalog.pg_type t
+	   WHERE c.oid = a.attcollation AND t.oid = a.atttypid AND a.attcollation <> t.typcollation) AS attcollation,
+	  a.attidentity,
+	  a.attgenerated
+	FROM pg_catalog.pg_attribute a
+	WHERE a.attrelid = '16392' AND a.attnum > 0 AND NOT a.attisdropped
+	ORDER BY a.attnum;
+2025-01-12 19:55:00.608 CST [592674] LOG:  bestpath:tuple_fraction <= 0.0,all tuples will be retrieved.  pathtype=Result,parallel_aware=false, parallel_safe=false,   parallel_workers=0, startup_cost=0.15, total_cost=8.17, rows=1
+2025-01-12 19:55:00.608 CST [592674] STATEMENT:  SELECT a.attname,
+	  pg_catalog.format_type(a.atttypid, a.atttypmod),
+	  (SELECT pg_catalog.pg_get_expr(d.adbin, d.adrelid, true)
+	   FROM pg_catalog.pg_attrdef d
+	   WHERE d.adrelid = a.attrelid AND d.adnum = a.attnum AND a.atthasdef),
+	  a.attnotnull,
+	  (SELECT c.collname FROM pg_catalog.pg_collation c, pg_catalog.pg_type t
+	   WHERE c.oid = a.attcollation AND t.oid = a.atttypid AND a.attcollation <> t.typcollation) AS attcollation,
+	  a.attidentity,
+	  a.attgenerated
+	FROM pg_catalog.pg_attribute a
+	WHERE a.attrelid = '16392' AND a.attnum > 0 AND NOT a.attisdropped
+	ORDER BY a.attnum;
+2025-01-12 19:55:00.608 CST [592674] LOG:  候选者: pathtype=UnknownPathType,parallel_aware=false, parallel_safe=false,  parallel_workers=0, startup_cost=0.27, total_cost=10.81, rows=1
+2025-01-12 19:55:00.608 CST [592674] STATEMENT:  SELECT a.attname,
+	  pg_catalog.format_type(a.atttypid, a.atttypmod),
+	  (SELECT pg_catalog.pg_get_expr(d.adbin, d.adrelid, true)
+	   FROM pg_catalog.pg_attrdef d
+	   WHERE d.adrelid = a.attrelid AND d.adnum = a.attnum AND a.atthasdef),
+	  a.attnotnull,
+	  (SELECT c.collname FROM pg_catalog.pg_collation c, pg_catalog.pg_type t
+	   WHERE c.oid = a.attcollation AND t.oid = a.atttypid AND a.attcollation <> t.typcollation) AS attcollation,
+	  a.attidentity,
+	  a.attgenerated
+	FROM pg_catalog.pg_attribute a
+	WHERE a.attrelid = '16392' AND a.attnum > 0 AND NOT a.attisdropped
+	ORDER BY a.attnum;
+2025-01-12 19:55:00.608 CST [592674] LOG:  bestpath:tuple_fraction <= 0.0,all tuples will be retrieved.  pathtype=UnknownPathType,parallel_aware=false, parallel_safe=false,   parallel_workers=0, startup_cost=0.27, total_cost=10.81, rows=1
+2025-01-12 19:55:00.608 CST [592674] STATEMENT:  SELECT a.attname,
+	  pg_catalog.format_type(a.atttypid, a.atttypmod),
+	  (SELECT pg_catalog.pg_get_expr(d.adbin, d.adrelid, true)
+	   FROM pg_catalog.pg_attrdef d
+	   WHERE d.adrelid = a.attrelid AND d.adnum = a.attnum AND a.atthasdef),
+	  a.attnotnull,
+	  (SELECT c.collname FROM pg_catalog.pg_collation c, pg_catalog.pg_type t
+	   WHERE c.oid = a.attcollation AND t.oid = a.atttypid AND a.attcollation <> t.typcollation) AS attcollation,
+	  a.attidentity,
+	  a.attgenerated
+	FROM pg_catalog.pg_attribute a
+	WHERE a.attrelid = '16392' AND a.attnum > 0 AND NOT a.attisdropped
+	ORDER BY a.attnum;
+2025-01-12 19:55:00.609 CST [592674] LOG:  候选者: pathtype=Result,parallel_aware=false, parallel_safe=false,  parallel_workers=0, startup_cost=0.28, total_cost=69.33, rows=3
+2025-01-12 19:55:00.609 CST [592674] STATEMENT:  SELECT a.attname,
+	  pg_catalog.format_type(a.atttypid, a.atttypmod),
+	  (SELECT pg_catalog.pg_get_expr(d.adbin, d.adrelid, true)
+	   FROM pg_catalog.pg_attrdef d
+	   WHERE d.adrelid = a.attrelid AND d.adnum = a.attnum AND a.atthasdef),
+	  a.attnotnull,
+	  (SELECT c.collname FROM pg_catalog.pg_collation c, pg_catalog.pg_type t
+	   WHERE c.oid = a.attcollation AND t.oid = a.atttypid AND a.attcollation <> t.typcollation) AS attcollation,
+	  a.attidentity,
+	  a.attgenerated
+	FROM pg_catalog.pg_attribute a
+	WHERE a.attrelid = '16392' AND a.attnum > 0 AND NOT a.attisdropped
+	ORDER BY a.attnum;
+2025-01-12 19:55:00.609 CST [592674] LOG:  bestpath:tuple_fraction <= 0.0,all tuples will be retrieved.  pathtype=Result,parallel_aware=false, parallel_safe=false,   parallel_workers=0, startup_cost=0.28, total_cost=69.33, rows=3
+2025-01-12 19:55:00.609 CST [592674] STATEMENT:  SELECT a.attname,
+	  pg_catalog.format_type(a.atttypid, a.atttypmod),
+	  (SELECT pg_catalog.pg_get_expr(d.adbin, d.adrelid, true)
+	   FROM pg_catalog.pg_attrdef d
+	   WHERE d.adrelid = a.attrelid AND d.adnum = a.attnum AND a.atthasdef),
+	  a.attnotnull,
+	  (SELECT c.collname FROM pg_catalog.pg_collation c, pg_catalog.pg_type t
+	   WHERE c.oid = a.attcollation AND t.oid = a.atttypid AND a.attcollation <> t.typcollation) AS attcollation,
+	  a.attidentity,
+	  a.attgenerated
+	FROM pg_catalog.pg_attribute a
+	WHERE a.attrelid = '16392' AND a.attnum > 0 AND NOT a.attisdropped
+	ORDER BY a.attnum;
+2025-01-12 19:55:00.611 CST [592674] LOG:  候选者: pathtype=Sort,parallel_aware=false, parallel_safe=true,  parallel_workers=0, startup_cost=19.62, total_cost=19.62, rows=1
+2025-01-12 19:55:00.611 CST [592674] STATEMENT:  SELECT c2.relname, i.indisprimary, i.indisunique, i.indisclustered, i.indisvalid, pg_catalog.pg_get_indexdef(i.indexrelid, 0, true),
+	  pg_catalog.pg_get_constraintdef(con.oid, true), contype, condeferrable, condeferred, i.indisreplident, c2.reltablespace
+	FROM pg_catalog.pg_class c, pg_catalog.pg_class c2, pg_catalog.pg_index i
+	  LEFT JOIN pg_catalog.pg_constraint con ON (conrelid = i.indrelid AND conindid = i.indexrelid AND contype IN ('p','u','x'))
+	WHERE c.oid = '16392' AND c.oid = i.indrelid AND i.indexrelid = c2.oid
+	ORDER BY i.indisprimary DESC, c2.relname;
+2025-01-12 19:55:00.611 CST [592674] LOG:  bestpath:tuple_fraction <= 0.0,all tuples will be retrieved.  pathtype=Sort,parallel_aware=false, parallel_safe=true,   parallel_workers=0, startup_cost=19.62, total_cost=19.62, rows=1
+2025-01-12 19:55:00.611 CST [592674] STATEMENT:  SELECT c2.relname, i.indisprimary, i.indisunique, i.indisclustered, i.indisvalid, pg_catalog.pg_get_indexdef(i.indexrelid, 0, true),
+	  pg_catalog.pg_get_constraintdef(con.oid, true), contype, condeferrable, condeferred, i.indisreplident, c2.reltablespace
+	FROM pg_catalog.pg_class c, pg_catalog.pg_class c2, pg_catalog.pg_index i
+	  LEFT JOIN pg_catalog.pg_constraint con ON (conrelid = i.indrelid AND conindid = i.indexrelid AND contype IN ('p','u','x'))
+	WHERE c.oid = '16392' AND c.oid = i.indrelid AND i.indexrelid = c2.oid
+	ORDER BY i.indisprimary DESC, c2.relname;
+2025-01-12 19:55:00.614 CST [592674] LOG:  候选者: pathtype=Sort,parallel_aware=false, parallel_safe=false,  parallel_workers=0, startup_cost=1.28, total_cost=1.30, rows=6
+2025-01-12 19:55:00.614 CST [592674] STATEMENT:  SELECT pol.polname, pol.polpermissive,
+	  CASE WHEN pol.polroles = '{0}' THEN NULL ELSE pg_catalog.array_to_string(array(select rolname from pg_catalog.pg_roles where oid = any (pol.polroles) order by 1),',') END,
+	  pg_catalog.pg_get_expr(pol.polqual, pol.polrelid),
+	  pg_catalog.pg_get_expr(pol.polwithcheck, pol.polrelid),
+	  CASE pol.polcmd
+	    WHEN 'r' THEN 'SELECT'
+	    WHEN 'a' THEN 'INSERT'
+	    WHEN 'w' THEN 'UPDATE'
+	    WHEN 'd' THEN 'DELETE'
+	    END AS cmd
+	FROM pg_catalog.pg_policy pol
+	WHERE pol.polrelid = '16392' ORDER BY 1;
+2025-01-12 19:55:00.614 CST [592674] LOG:  bestpath:tuple_fraction <= 0.0,all tuples will be retrieved.  pathtype=Sort,parallel_aware=false, parallel_safe=false,   parallel_workers=0, startup_cost=1.28, total_cost=1.30, rows=6
+2025-01-12 19:55:00.614 CST [592674] STATEMENT:  SELECT pol.polname, pol.polpermissive,
+	  CASE WHEN pol.polroles = '{0}' THEN NULL ELSE pg_catalog.array_to_string(array(select rolname from pg_catalog.pg_roles where oid = any (pol.polroles) order by 1),',') END,
+	  pg_catalog.pg_get_expr(pol.polqual, pol.polrelid),
+	  pg_catalog.pg_get_expr(pol.polwithcheck, pol.polrelid),
+	  CASE pol.polcmd
+	    WHEN 'r' THEN 'SELECT'
+	    WHEN 'a' THEN 'INSERT'
+	    WHEN 'w' THEN 'UPDATE'
+	    WHEN 'd' THEN 'DELETE'
+	    END AS cmd
+	FROM pg_catalog.pg_policy pol
+	WHERE pol.polrelid = '16392' ORDER BY 1;
+2025-01-12 19:55:00.614 CST [592674] LOG:  候选者: pathtype=Sort,parallel_aware=false, parallel_safe=false,  parallel_workers=0, startup_cost=12.14, total_cost=12.15, rows=2
+2025-01-12 19:55:00.614 CST [592674] STATEMENT:  SELECT pol.polname, pol.polpermissive,
+	  CASE WHEN pol.polroles = '{0}' THEN NULL ELSE pg_catalog.array_to_string(array(select rolname from pg_catalog.pg_roles where oid = any (pol.polroles) order by 1),',') END,
+	  pg_catalog.pg_get_expr(pol.polqual, pol.polrelid),
+	  pg_catalog.pg_get_expr(pol.polwithcheck, pol.polrelid),
+	  CASE pol.polcmd
+	    WHEN 'r' THEN 'SELECT'
+	    WHEN 'a' THEN 'INSERT'
+	    WHEN 'w' THEN 'UPDATE'
+	    WHEN 'd' THEN 'DELETE'
+	    END AS cmd
+	FROM pg_catalog.pg_policy pol
+	WHERE pol.polrelid = '16392' ORDER BY 1;
+2025-01-12 19:55:00.614 CST [592674] LOG:  bestpath:tuple_fraction <= 0.0,all tuples will be retrieved.  pathtype=Sort,parallel_aware=false, parallel_safe=false,   parallel_workers=0, startup_cost=12.14, total_cost=12.15, rows=2
+2025-01-12 19:55:00.614 CST [592674] STATEMENT:  SELECT pol.polname, pol.polpermissive,
+	  CASE WHEN pol.polroles = '{0}' THEN NULL ELSE pg_catalog.array_to_string(array(select rolname from pg_catalog.pg_roles where oid = any (pol.polroles) order by 1),',') END,
+	  pg_catalog.pg_get_expr(pol.polqual, pol.polrelid),
+	  pg_catalog.pg_get_expr(pol.polwithcheck, pol.polrelid),
+	  CASE pol.polcmd
+	    WHEN 'r' THEN 'SELECT'
+	    WHEN 'a' THEN 'INSERT'
+	    WHEN 'w' THEN 'UPDATE'
+	    WHEN 'd' THEN 'DELETE'
+	    END AS cmd
+	FROM pg_catalog.pg_policy pol
+	WHERE pol.polrelid = '16392' ORDER BY 1;
+2025-01-12 19:55:00.616 CST [592674] LOG:  候选者: pathtype=Agg,parallel_aware=false, parallel_safe=false,  parallel_workers=0, startup_cost=20.71, total_cost=20.72, rows=1
+2025-01-12 19:55:00.616 CST [592674] STATEMENT:  SELECT oid, stxrelid::pg_catalog.regclass, stxnamespace::pg_catalog.regnamespace AS nsp, stxname,
+	  (SELECT pg_catalog.string_agg(pg_catalog.quote_ident(attname),', ')
+	   FROM pg_catalog.unnest(stxkeys) s(attnum)
+	   JOIN pg_catalog.pg_attribute a ON (stxrelid = a.attrelid AND
+	        a.attnum = s.attnum AND NOT attisdropped)) AS columns,
+	  'd' = any(stxkind) AS ndist_enabled,
+	  'f' = any(stxkind) AS deps_enabled,
+	  'm' = any(stxkind) AS mcv_enabled,
+	  stxstattarget
+	FROM pg_catalog.pg_statistic_ext stat
+	WHERE stxrelid = '16392'
+	ORDER BY 1;
+2025-01-12 19:55:00.616 CST [592674] LOG:  bestpath:tuple_fraction <= 0.0,all tuples will be retrieved.  pathtype=Agg,parallel_aware=false, parallel_safe=false,   parallel_workers=0, startup_cost=20.71, total_cost=20.72, rows=1
+2025-01-12 19:55:00.616 CST [592674] STATEMENT:  SELECT oid, stxrelid::pg_catalog.regclass, stxnamespace::pg_catalog.regnamespace AS nsp, stxname,
+	  (SELECT pg_catalog.string_agg(pg_catalog.quote_ident(attname),', ')
+	   FROM pg_catalog.unnest(stxkeys) s(attnum)
+	   JOIN pg_catalog.pg_attribute a ON (stxrelid = a.attrelid AND
+	        a.attnum = s.attnum AND NOT attisdropped)) AS columns,
+	  'd' = any(stxkind) AS ndist_enabled,
+	  'f' = any(stxkind) AS deps_enabled,
+	  'm' = any(stxkind) AS mcv_enabled,
+	  stxstattarget
+	FROM pg_catalog.pg_statistic_ext stat
+	WHERE stxrelid = '16392'
+	ORDER BY 1;
+2025-01-12 19:55:00.616 CST [592674] LOG:  候选者: pathtype=Sort,parallel_aware=false, parallel_safe=false,  parallel_workers=0, startup_cost=51.03, total_cost=51.03, rows=2
+2025-01-12 19:55:00.616 CST [592674] STATEMENT:  SELECT oid, stxrelid::pg_catalog.regclass, stxnamespace::pg_catalog.regnamespace AS nsp, stxname,
+	  (SELECT pg_catalog.string_agg(pg_catalog.quote_ident(attname),', ')
+	   FROM pg_catalog.unnest(stxkeys) s(attnum)
+	   JOIN pg_catalog.pg_attribute a ON (stxrelid = a.attrelid AND
+	        a.attnum = s.attnum AND NOT attisdropped)) AS columns,
+	  'd' = any(stxkind) AS ndist_enabled,
+	  'f' = any(stxkind) AS deps_enabled,
+	  'm' = any(stxkind) AS mcv_enabled,
+	  stxstattarget
+	FROM pg_catalog.pg_statistic_ext stat
+	WHERE stxrelid = '16392'
+	ORDER BY 1;
+2025-01-12 19:55:00.616 CST [592674] LOG:  bestpath:tuple_fraction <= 0.0,all tuples will be retrieved.  pathtype=Sort,parallel_aware=false, parallel_safe=false,   parallel_workers=0, startup_cost=51.03, total_cost=51.03, rows=2
+2025-01-12 19:55:00.616 CST [592674] STATEMENT:  SELECT oid, stxrelid::pg_catalog.regclass, stxnamespace::pg_catalog.regnamespace AS nsp, stxname,
+	  (SELECT pg_catalog.string_agg(pg_catalog.quote_ident(attname),', ')
+	   FROM pg_catalog.unnest(stxkeys) s(attnum)
+	   JOIN pg_catalog.pg_attribute a ON (stxrelid = a.attrelid AND
+	        a.attnum = s.attnum AND NOT attisdropped)) AS columns,
+	  'd' = any(stxkind) AS ndist_enabled,
+	  'f' = any(stxkind) AS deps_enabled,
+	  'm' = any(stxkind) AS mcv_enabled,
+	  stxstattarget
+	FROM pg_catalog.pg_statistic_ext stat
+	WHERE stxrelid = '16392'
+	ORDER BY 1;
+2025-01-12 19:55:00.617 CST [592674] LOG:  候选者: pathtype=Result,parallel_aware=false, parallel_safe=true,  parallel_workers=0, startup_cost=75.31, total_cost=76.29, rows=395
+2025-01-12 19:55:00.617 CST [592674] STATEMENT:  SELECT pubname
+	FROM pg_catalog.pg_publication p
+	JOIN pg_catalog.pg_publication_rel pr ON p.oid = pr.prpubid
+	WHERE pr.prrelid = '16392'
+	UNION ALL
+	SELECT pubname
+	FROM pg_catalog.pg_publication p
+	WHERE p.puballtables AND pg_catalog.pg_relation_is_publishable('16392')
+	ORDER BY 1;
+2025-01-12 19:55:00.617 CST [592674] LOG:  候选者: pathtype=UnknownPathType,parallel_aware=false, parallel_safe=false,  parallel_workers=0, startup_cost=1041.62, total_cost=1079.89, rows=328
+2025-01-12 19:55:00.617 CST [592674] STATEMENT:  SELECT pubname
+	FROM pg_catalog.pg_publication p
+	JOIN pg_catalog.pg_publication_rel pr ON p.oid = pr.prpubid
+	WHERE pr.prrelid = '16392'
+	UNION ALL
+	SELECT pubname
+	FROM pg_catalog.pg_publication p
+	WHERE p.puballtables AND pg_catalog.pg_relation_is_publishable('16392')
+	ORDER BY 1;
+2025-01-12 19:55:00.617 CST [592674] LOG:  bestpath:tuple_fraction <= 0.0,all tuples will be retrieved.  pathtype=Result,parallel_aware=false, parallel_safe=true,   parallel_workers=0, startup_cost=75.31, total_cost=76.29, rows=395
+2025-01-12 19:55:00.617 CST [592674] STATEMENT:  SELECT pubname
+	FROM pg_catalog.pg_publication p
+	JOIN pg_catalog.pg_publication_rel pr ON p.oid = pr.prpubid
+	WHERE pr.prrelid = '16392'
+	UNION ALL
+	SELECT pubname
+	FROM pg_catalog.pg_publication p
+	WHERE p.puballtables AND pg_catalog.pg_relation_is_publishable('16392')
+	ORDER BY 1;
+2025-01-12 19:55:00.619 CST [592674] LOG:  候选者: pathtype=Sort,parallel_aware=false, parallel_safe=true,  parallel_workers=0, startup_cost=35.41, total_cost=35.44, rows=10
+2025-01-12 19:55:00.619 CST [592674] STATEMENT:  SELECT c.oid::pg_catalog.regclass
+	FROM pg_catalog.pg_class c, pg_catalog.pg_inherits i
+	WHERE c.oid = i.inhparent AND i.inhrelid = '16392'
+	  AND c.relkind != 'p' AND c.relkind != 'I'
+	ORDER BY inhseqno;
+2025-01-12 19:55:00.619 CST [592674] LOG:  bestpath:tuple_fraction <= 0.0,all tuples will be retrieved.  pathtype=Sort,parallel_aware=false, parallel_safe=true,   parallel_workers=0, startup_cost=35.41, total_cost=35.44, rows=10
+2025-01-12 19:55:00.619 CST [592674] STATEMENT:  SELECT c.oid::pg_catalog.regclass
+	FROM pg_catalog.pg_class c, pg_catalog.pg_inherits i
+	WHERE c.oid = i.inhparent AND i.inhrelid = '16392'
+	  AND c.relkind != 'p' AND c.relkind != 'I'
+	ORDER BY inhseqno;
+2025-01-12 19:55:00.620 CST [592674] LOG:  候选者: pathtype=Sort,parallel_aware=false, parallel_safe=true,  parallel_workers=0, startup_cost=33.61, total_cost=33.63, rows=10
+2025-01-12 19:55:00.620 CST [592674] STATEMENT:  SELECT c.oid::pg_catalog.regclass, c.relkind, pg_catalog.pg_get_expr(c.relpartbound, c.oid)
+	FROM pg_catalog.pg_class c, pg_catalog.pg_inherits i
+	WHERE c.oid = i.inhrelid AND i.inhparent = '16392'
+	ORDER BY pg_catalog.pg_get_expr(c.relpartbound, c.oid) = 'DEFAULT', c.oid::pg_catalog.regclass::pg_catalog.text;
+2025-01-12 19:55:00.620 CST [592674] LOG:  bestpath:tuple_fraction <= 0.0,all tuples will be retrieved.  pathtype=Sort,parallel_aware=false, parallel_safe=true,   parallel_workers=0, startup_cost=33.61, total_cost=33.63, rows=10
+2025-01-12 19:55:00.620 CST [592674] STATEMENT:  SELECT c.oid::pg_catalog.regclass, c.relkind, pg_catalog.pg_get_expr(c.relpartbound, c.oid)
+	FROM pg_catalog.pg_class c, pg_catalog.pg_inherits i
+	WHERE c.oid = i.inhrelid AND i.inhparent = '16392'
+	ORDER BY pg_catalog.pg_get_expr(c.relpartbound, c.oid) = 'DEFAULT', c.oid::pg_catalog.regclass::pg_catalog.text;
+2025-01-12 19:55:32.674 CST [592674] LOG:  候选者: pathtype=T_BitmapHeapScan,parallel_aware=false, parallel_safe=true,  parallel_workers=0, startup_cost=9.99, total_cost=29.40, rows=753
+2025-01-12 19:55:32.674 CST [592674] STATEMENT:  explain select * from test_a where a>1000;
+2025-01-12 19:55:32.674 CST [592674] LOG:  bestpath:tuple_fraction <= 0.0,all tuples will be retrieved.  pathtype=T_BitmapHeapScan,parallel_aware=false, parallel_safe=true,   parallel_workers=0, startup_cost=9.99, total_cost=29.40, rows=753
+2025-01-12 19:55:32.674 CST [592674] STATEMENT:  explain select * from test_a where a>1000;
+2025-01-12 19:57:35.042 CST [592674] LOG:  候选者: pathtype=T_BitmapHeapScan,parallel_aware=false, parallel_safe=true,  parallel_workers=0, startup_cost=9.99, total_cost=29.40, rows=753
+2025-01-12 19:57:35.042 CST [592674] STATEMENT:  explain select * from test_a where a>9000;
+2025-01-12 19:57:35.042 CST [592674] LOG:  bestpath:tuple_fraction <= 0.0,all tuples will be retrieved.  pathtype=T_BitmapHeapScan,parallel_aware=false, parallel_safe=true,   parallel_workers=0, startup_cost=9.99, total_cost=29.40, rows=753
+2025-01-12 19:57:35.042 CST [592674] STATEMENT:  explain select * from test_a where a>9000;
+2025-01-12 19:57:47.207 CST [592674] LOG:  候选者: pathtype=T_BitmapHeapScan,parallel_aware=false, parallel_safe=true,  parallel_workers=0, startup_cost=4.24, total_cost=14.91, rows=11
+2025-01-12 19:57:47.207 CST [592674] STATEMENT:  explain select * from test_a where a=9000;
+2025-01-12 19:57:47.207 CST [592674] LOG:  bestpath:tuple_fraction <= 0.0,all tuples will be retrieved.  pathtype=T_BitmapHeapScan,parallel_aware=false, parallel_safe=true,   parallel_workers=0, startup_cost=4.24, total_cost=14.91, rows=11
+2025-01-12 19:57:47.207 CST [592674] STATEMENT:  explain select * from test_a where a=9000;
+2025-01-12 19:58:23.535 CST [592674] LOG:  候选者: pathtype=T_BitmapHeapScan,parallel_aware=false, parallel_safe=true,  parallel_workers=0, startup_cost=4.24, total_cost=14.91, rows=11
+2025-01-12 19:58:23.535 CST [592674] STATEMENT:  explain select * from test_a where a=1;
+2025-01-12 19:58:23.535 CST [592674] LOG:  bestpath:tuple_fraction <= 0.0,all tuples will be retrieved.  pathtype=T_BitmapHeapScan,parallel_aware=false, parallel_safe=true,   parallel_workers=0, startup_cost=4.24, total_cost=14.91, rows=11
+2025-01-12 19:58:23.535 CST [592674] STATEMENT:  explain select * from test_a where a=1;
+2025-01-12 19:58:33.371 CST [592674] LOG:  候选者: pathtype=T_BitmapHeapScan,parallel_aware=false, parallel_safe=true,  parallel_workers=0, startup_cost=4.24, total_cost=14.91, rows=11
+2025-01-12 19:58:33.371 CST [592674] STATEMENT:  explain select * from test_a where a=300;
+2025-01-12 19:58:33.371 CST [592674] LOG:  bestpath:tuple_fraction <= 0.0,all tuples will be retrieved.  pathtype=T_BitmapHeapScan,parallel_aware=false, parallel_safe=true,   parallel_workers=0, startup_cost=4.24, total_cost=14.91, rows=11
+2025-01-12 19:58:33.371 CST [592674] STATEMENT:  explain select * from test_a where a=300;
+2025-01-12 19:58:40.415 CST [592674] LOG:  候选者: pathtype=T_BitmapHeapScan,parallel_aware=false, parallel_safe=true,  parallel_workers=0, startup_cost=9.99, total_cost=29.40, rows=753
+2025-01-12 19:58:40.415 CST [592674] STATEMENT:  explain select * from test_a where a>300;
+2025-01-12 19:58:40.415 CST [592674] LOG:  bestpath:tuple_fraction <= 0.0,all tuples will be retrieved.  pathtype=T_BitmapHeapScan,parallel_aware=false, parallel_safe=true,   parallel_workers=0, startup_cost=9.99, total_cost=29.40, rows=753
+2025-01-12 19:58:40.415 CST [592674] STATEMENT:  explain select * from test_a where a>300;
